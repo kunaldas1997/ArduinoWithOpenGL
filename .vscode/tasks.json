@@ -1,0 +1,67 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  // "windows": {
+  //   "options": {
+  //     "shell": {
+  //       "executable": "cmd.exe /k \"C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Auxiliary/Build/vcvars64.bat\"",
+  //       "args": [
+  //         "/C",
+  //         // The path to VsDevCmd.bat depends on the version of Visual Studio you have installed.
+  //         "\"C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/Tools/VsDevCmd.bat\"",
+  //         "&&",
+  //       ]
+  //     }
+  //   }
+  // },
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "cl.exe build active file",
+      "command": "cl.exe",
+      "args": [
+        "D:\\Codes\\Research\\cpp\\finProj\\GLFW",
+        "D:\\Codes\\Research\\cpp\\finProj\\GL",
+        "D:\\Codes\\Research\\cpp\\finProj\\GLM",
+        "D:\\Codes\\Research\\cpp\\finProj\\Ext",
+        "/Zi",
+        "/EHsc",
+        "./Main.cpp",
+        "./CSVReader.cpp",
+        "./Mesh.cpp",
+        "./Shader.cpp",
+        "./Window.cpp",
+        "./MiscFunc.cpp",
+        "/Fo:./bin\\x64\\obj/",
+        "/link",
+        "/LIBPATH:D:\\Codes\\Research\\cpp\\finProj\\Ext",
+        "glfw3.lib",
+        "glew32s.lib",
+        "opengl32.lib",
+        "shell32.lib",
+        "user32.lib",
+        "kernel32.lib",
+        "gdi32.lib",
+        "winspool.lib",
+        "comdlg32.lib",
+        "advapi32.lib",
+        "ole32.lib",
+        "oleaut32.lib",
+        "uuid.lib",
+        "odbc32.lib",
+        "odbccp32.lib",
+        "msvcrt.lib",
+        "msvcmrt.lib",
+        "/Fe:./bin\\x64\\Main.exe"
+      ],
+      "problemMatcher": [
+        "$msCompile"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
